@@ -44,7 +44,7 @@ if not os.path.exists(CONFIG_FILE) or not os.path.isfile(CONFIG_FILE):
                   "variable PSP_CONFIG_FILE is not a file or does not exist!")
 
 MODIS_BAND_NAMES = [str(i) for i in range(1, 37)]
-SHORTWAVE_BANDS = [str(i) for i in range(1, 20) + [26]]
+SHORTWAVE_BANDS = [str(i) for i in list(range(1, 20)) + [26]]
 
 
 class ModisRSR(object):
@@ -105,7 +105,7 @@ class ModisRSR(object):
                 filename = os.path.join(path,
                                         "rsr.%d.inb.final" % (bnum))
             else:
-                if bnum in [5, 6, 7] + range(20, 37):
+                if bnum in [5, 6, 7] + list(range(20, 37)):
                     filename = os.path.join(path, "%.2d.tv.1pct.det" % (bnum))
                 else:
                     filename = os.path.join(path, "%.2d.amb.1pct.det" % (bnum))
