@@ -187,7 +187,7 @@ def convert2hdf5(platform_name):
             grp.attrs['number_of_detectors'] = len(modis.rsr.keys())
             # Loop over each detector to check if the sampling wavelengths are
             # identical:
-            det_names = modis.rsr.keys()
+            det_names = list(modis.rsr.keys())
             wvl = modis.rsr[det_names[0]]['wavelength']
             wvl_is_constant = True
             for det in det_names[1:]:

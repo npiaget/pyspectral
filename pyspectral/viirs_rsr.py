@@ -204,7 +204,7 @@ def main():
             grp.attrs['number_of_detectors'] = len(viirs.rsr.keys())
             # Loop over each detector to check if the sampling wavelengths are
             # identical:
-            det_names = viirs.rsr.keys()
+            det_names = list(viirs.rsr.keys())
             wvl = viirs.rsr[det_names[0]]['wavelength']
             wvl_is_constant = True
             for det in det_names[1:]:
