@@ -277,7 +277,7 @@ def main():
 
     for satnum in [8, 9, 10, 11]:
         generate_seviri_file(sevObj, 'Meteosat-%d' % satnum)
-        print "Meteosat-%d done..." % satnum
+        print("Meteosat-%d done..." % satnum)
 
 if __name__ == "__main__":
     main()

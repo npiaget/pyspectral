@@ -59,10 +59,10 @@ class TestBlackbody(unittest.TestCase):
 
         tb_therm = np.array([[300., 301], [299, 298], [279, 286]])
         black = blackbody((10. * 1E-6, 11.e-6), tb_therm)
-        print black
+        print(black)
         tb_therm = np.array([[300., 301], [0., 298], [279, 286]])
         black = blackbody((10. * 1E-6, 11.e-6), tb_therm)
-        print black
+        print(black)
 
     def test_blackbody_wn(self):
         """Calculate the blackbody radiation from wavenumbers and
@@ -70,7 +70,7 @@ class TestBlackbody(unittest.TestCase):
         """
         wavenumber = 90909.1  # 11 micron band
         black = blackbody_wn((wavenumber, ), [300., 301])
-        print black
+        print(black)
         self.assertEqual(black.shape[0], 2)
         self.assertAlmostEqual(black[0], WN_RAD_11MICRON_300KELVIN)
         self.assertAlmostEqual(black[1], WN_RAD_11MICRON_301KELVIN)

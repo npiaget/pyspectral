@@ -25,7 +25,7 @@
 import logging
 import sys
 from pyspectral.rsr_read import RelativeSpectralResponse
-from pyspectral.solar import (SolarIrradianceSpectrum, 
+from pyspectral.solar import (SolarIrradianceSpectrum,
                               TOTAL_IRRADIANCE_SPECTRUM_2000ASTM)
 #: Default time format
 _DEFAULT_TIME_FORMAT = '%Y-%m-%d %H:%M:%S'
@@ -49,7 +49,7 @@ def main():
     modis = RelativeSpectralResponse('EOS-Aqua', 'modis')
     modis.read(channel='20', scale=0.001)
 
-    solar_irr = SolarIrradianceSpectrum(TOTAL_IRRADIANCE_SPECTRUM_2000ASTM, 
+    solar_irr = SolarIrradianceSpectrum(TOTAL_IRRADIANCE_SPECTRUM_2000ASTM,
                                         dlambda=0.005)
     solar_irr.read()
 
@@ -65,7 +65,7 @@ def main():
     tb3 = 290
     tb4 = 282
     refl = refl37.reflectance_from_tbs(sunz, tb3, tb4)
-    print refl
+    print(refl)
 
     refl37.make_tb2rad_lut('./modis_EOS-Aqua_band20_tb2rad_lut.npz')
 
