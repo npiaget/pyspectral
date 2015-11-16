@@ -26,7 +26,7 @@ thermal range (usually the 3.7-3.9 micron band) using a thermal atmospheric
 window channel (usually around 11-12 microns).
 """
 
-import ConfigParser
+import configparser
 import os
 import numpy as np
 from pyspectral.solar import (SolarIrradianceSpectrum,
@@ -76,10 +76,10 @@ class Calculator(RadTbConverter):
 
         options = {}
         if CONFIG_FILE:
-            conf = ConfigParser.ConfigParser()
+            conf = configparser.ConfigParser()
             try:
                 conf.read(CONFIG_FILE)
-            except ConfigParser.NoSectionError:
+            except configparser.NoSectionError:
                 LOG.warning('Failed reading configuration file: %s',
                             str(CONFIG_FILE))
 

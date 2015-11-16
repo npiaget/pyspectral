@@ -23,7 +23,7 @@
 
 """Reading the spectral responses in the internal pyspectral hdf5 format"""
 
-import ConfigParser
+import configparser
 import os
 import numpy as np
 from glob import glob
@@ -58,10 +58,10 @@ class RelativeSpectralResponse(object):
         self.unit = '1e-6 m'
         self.si_scale = 1e-6  # How to scale the wavelengths to become SI unit
 
-        conf = ConfigParser.ConfigParser()
+        conf = configparser.ConfigParser()
         try:
             conf.read(CONFIG_FILE)
-        except ConfigParser.NoSectionError:
+        except configparser.NoSectionError:
             LOG.exception('Failed reading configuration file: %s',
                           str(CONFIG_FILE))
             raise

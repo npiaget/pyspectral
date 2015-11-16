@@ -27,7 +27,7 @@ http://cimss.ssec.wisc.edu/goes/calibration/SRF/ahi/
 import logging
 LOG = logging.getLogger(__name__)
 
-import ConfigParser
+import configparser
 import os
 import numpy as np
 
@@ -66,10 +66,10 @@ class AhiRSR(object):
         self.filenames = {}
         self.rsr = None
 
-        conf = ConfigParser.ConfigParser()
+        conf = configparser.ConfigParser()
         try:
             conf.read(CONFIG_FILE)
-        except ConfigParser.NoSectionError:
+        except configparser.NoSectionError:
             LOG.exception('Failed reading configuration file: ' +
                           str(CONFIG_FILE))
             raise

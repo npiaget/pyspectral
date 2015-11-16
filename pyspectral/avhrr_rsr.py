@@ -25,7 +25,7 @@
 Data from NOAA STAR.
 """
 
-import ConfigParser
+import configparser
 import os
 import numpy as np
 
@@ -60,10 +60,10 @@ class AvhrrRSR(object):
             self.filenames[band] = None
         self.rsr = None
 
-        conf = ConfigParser.ConfigParser()
+        conf = configparser.ConfigParser()
         try:
             conf.read(CONFIG_FILE)
-        except ConfigParser.NoSectionError:
+        except configparser.NoSectionError:
             LOG.exception('Failed reading configuration file: %s',
                           str(CONFIG_FILE))
             raise

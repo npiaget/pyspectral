@@ -23,7 +23,7 @@
 
 """Read the Terra/Aqua MODIS relative spectral response functions."""
 
-import ConfigParser
+import configparser
 import os
 import numpy as np
 
@@ -67,10 +67,10 @@ class ModisRSR(object):
 
         self.rsr = None
         self._sort = sort
-        conf = ConfigParser.ConfigParser()
+        conf = configparser.ConfigParser()
         try:
             conf.read(CONFIG_FILE)
-        except ConfigParser.NoSectionError:
+        except configparser.NoSectionError:
             LOG.exception('Failed reading configuration file: %s',
                           str(CONFIG_FILE))
             raise

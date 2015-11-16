@@ -26,7 +26,7 @@
 satellites
 """
 
-import ConfigParser
+import configparser
 import os
 from xlrd import open_workbook
 import numpy as np
@@ -58,10 +58,10 @@ class Seviri(object):
         default. Can be 'wavenumber' in which case the unit is in cm-1.
 
         """
-        conf = ConfigParser.ConfigParser()
+        conf = configparser.ConfigParser()
         try:
             conf.read(CONFIG_FILE)
-        except ConfigParser.NoSectionError:
+        except configparser.NoSectionError:
             LOG.exception('Failed reading configuration file: %s',
                           str(CONFIG_FILE))
             raise
