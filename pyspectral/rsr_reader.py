@@ -91,8 +91,9 @@ class RelativeSpectralResponse(object):
         import h5py
 
         with h5py.File(self.filename, 'r') as h5f:
-            self.band_names = h5f.attrs['band_names'].tolist()
-            self.description = h5f.attrs['description']
+            self.band_names = [b.decode('utf8')
+                               for b in h5f.attrs['band_names']]
+            self.description = h5f.attrs['description'].decode('utf8')
             for bandname in self.band_names:
                 self.rsr[bandname] = {}
                 try:
